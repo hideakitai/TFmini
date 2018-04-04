@@ -7,8 +7,8 @@ TFmini tfmini[2];
 void setup()
 {
     Serial.begin(115200);
-    Serial1.begin(TFmini::BAUDRATE, SERIAL_8N1, 26, 27);
-    Serial2.begin(TFmini::BAUDRATE);
+    Serial1.begin(TFmini::DEFAULT_BAUDRATE, SERIAL_8N1, 26, 27);
+    Serial2.begin(TFmini::DEFAULT_BAUDRATE);
     tfmini[0].attach(Serial1);
     tfmini[1].attach(Serial2);
 }
