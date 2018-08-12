@@ -66,6 +66,7 @@ void resetSettings()
 ```
 
 ### Public Constnts
+
 ```
 static const uint32_t DEFAULT_BAUDRATE = 115200;
 
