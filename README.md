@@ -4,22 +4,19 @@ Arduino library for [Benewake TFmini micro LiDAR module](http://benewake.com/en/
 
 ## Usage
 
-```
+```C++
 #include "TFmini.h"
 
 TFmini tfmini;
 
-void setup()
-{
+void setup() {
     Serial.begin(115200);
     Serial1.begin(TFmini::DEFAULT_BAUDRATE);
     tfmini.attach(Serial1);
 }
 
-void loop()
-{
-    if (tfmini.available())
-    {
+void loop() {
+    if (tfmini.available()) {
         Serial.print("distance : ");
         Serial.println(tfmini.getDistance());
         Serial.print("strength : ");
@@ -32,42 +29,42 @@ void loop()
 
 ### Supported Configuration
 
-```
+```C++
 // default : Standard
-void setOutputDataFormat(const OutputDataFormat format)
+void setOutputDataFormat(const OutputDataFormat format);
 
 // default : 10ms
-void setOutputDataPeriod(const uint16_t ms)
+void setOutputDataPeriod(const uint16_t ms);
 
 // default : cm
-void setOutputDataUnit(const OutputDataUnit unit)
+void setOutputDataUnit(const OutputDataUnit unit);
 
 // default : Auto
-void setDetectionPattern(const DetectionPattern pttr)
+void setDetectionPattern(const DetectionPattern pttr);
 
 // usable when detection pattern is Fixed
-void setDistanceMode(const DistanceMode mode)
+void setDistanceMode(const DistanceMode mode);
 
 // default : 12m
-void setRangeLimit(uint16_t mm)
-void disableRangeLimit()
+void setRangeLimit(uint16_t mm);
+void disableRangeLimit();
 
 // default : low = 20(DEC), high & cm is undefined
-void setSignalStrengthThreshold(uint8_t low, uint16_t high, uint8_t cm)
+void setSignalStrengthThreshold(uint8_t low, uint16_t high, uint8_t cm);
 
 // default : 115200 (0x06)
-void setBaudRate(Baudrate baud)
+void setBaudRate(Baudrate baud);
 
 // default : Internal (100Hz)
-void setTriggerSource(const TriggerSource trigger)
+void setTriggerSource(const TriggerSource trigger);
 
 // reset all settings
-void resetSettings()
+void resetSettings();
 ```
 
 ### Public Constnts
 
-```
+```C++
 static const uint32_t DEFAULT_BAUDRATE = 115200;
 
 enum class OutputDataFormat { Standard = 0x01, Pixhawk = 0x04 };
